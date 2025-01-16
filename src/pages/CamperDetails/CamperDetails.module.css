@@ -2,8 +2,15 @@
   padding: 20px;
 }
 
+.imageWrap {
+  display: flex;
+  gap: 48px;
+}
+
 .image {
-  width: 100%;
-  max-width: 500px;
+  border-radius: 10px;
+  width: 292px;
+  height: 312px;
+  object-fit: cover;
   margin: 20px 0;
 }

@@ -15,3 +15,18 @@ export const fetchCampers = createAsyncThunk(
     }
   }
 );
+
+export const fetchCamperById = createAsyncThunk(
+  "campers/fetchCamperById",
+  async (camperId, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${camperId}`
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Ошибка при загрузке данных кемпера:", error);
+      return rejectWithValue(error.response?.data || "Something went wrong");
+    }
+  }
+);
