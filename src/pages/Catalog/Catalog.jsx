@@ -1,24 +1,27 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCampers } from "../../redux/campers/slice";
-import axios from "axios";
+import { fetchCampers } from "../../redux/campers/operations";
 import CamperCard from "../../components/CamperCard/CamperCard";
 import css from "./Catalog.module.css";
 
 export default function Catalog() {
   const dispatch = useDispatch();
-  const campers = useSelector((state) => state.campers.list);
+  const { campers, status, error } = useSelector((state) => state.campers);
 
   useEffect(() => {
-    axios
-      .get("https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers")
-      .then((response) => dispatch(setCampers(response.data)))
-      .catch((error) => console.error("Error fetching campers:", error));
+    dispatch(fetchCampers());
   }, [dispatch]);
+
+  if (status === "loading") {
+    return <p>Loading campers...</p>;
+  }
+
+  if (status === "failed") {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <div className={css.catalog}>
-      <h1>Available Campers</h1>
       <div className={css.grid}>
         {campers.map((camper) => (
           <CamperCard key={camper.id} camper={camper} />

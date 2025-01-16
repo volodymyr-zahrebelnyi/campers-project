@@ -1,25 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { fetchCampers } from "./operations";
 
 const initialState = {
   campers: [],
   filteredCampers: [],
-  favorites: [], // Список ID избранных кемперов
+  favorites: [],
   filters: {
     location: "",
     type: "",
     features: [],
   },
   status: "idle",
+  error: null,
 };
 
 const campersSlice = createSlice({
   name: "campers",
   initialState,
   reducers: {
-    setCampers(state, action) {
-      state.campers = action.payload;
-      state.filteredCampers = action.payload;
-    },
     setFilters(state, action) {
       state.filters = action.payload;
     },
@@ -38,27 +36,26 @@ const campersSlice = createSlice({
       state.filters = { location: "", type: "", features: [] };
       state.filteredCampers = state.campers;
     },
-    setLoadingStatus(state) {
-      state.status = "loading";
-    },
-    setIdleStatus(state) {
-      state.status = "idle";
-    },
-    setFailedStatus(state) {
-      state.status = "failed";
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCampers.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(fetchCampers.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.campers = action.payload;
+        state.filteredCampers = action.payload;
+      })
+      .addCase(fetchCampers.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload || "Failed to fetch campers";
+      });
   },
 });
 
-export const {
-  setCampers,
-  setFilters,
-  setFilteredCampers,
-  toggleFavorite,
-  resetFilters,
-  setLoadingStatus,
-  setIdleStatus,
-  setFailedStatus,
-} = campersSlice.actions;
+export const { setFilters, setFilteredCampers, toggleFavorite, resetFilters } =
+  campersSlice.actions;
 
 export default campersSlice.reducer;
