@@ -2,7 +2,10 @@
   display: inline-block;
   text-decoration: none;
   padding: 12px;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
   color: #2a363b;
 }
 

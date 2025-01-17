@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BsSuitHeart } from "react-icons/bs";
 import css from "./CamperCard.module.css";
 
 export default function CamperCard({ camper }) {
@@ -12,11 +13,13 @@ export default function CamperCard({ camper }) {
         <h3>{name}</h3>
         <p>Location: {location}</p>
         <p>Price: {price.toFixed(2)} USD</p>
+        <button className={css.favorite}>
+          <BsSuitHeart className={css.iconFavourite} />
+        </button>
         <div className={css.actions}>
           <Link to={`/catalog/${id}`} className={css.details}>
             Show more
           </Link>
-          <button className={css.favorite}>Add to Favorites</button>
         </div>
       </div>
     </div>

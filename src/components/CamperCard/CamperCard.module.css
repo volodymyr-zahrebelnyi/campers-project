@@ -28,14 +28,10 @@
 }
 
 .favorite {
-  background-color: #ff6f61;
-  border: none;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
+  padding: 5px;
   cursor: pointer;
 }
 
 .favorite:hover {
-  background-color: #e5564d;
+  color: #ff6f61;
 }

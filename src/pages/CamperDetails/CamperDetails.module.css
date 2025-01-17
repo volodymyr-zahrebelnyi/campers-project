@@ -1,6 +1,10 @@
-.details {
+.container {
   padding: 20px;
 }
+
+/* .camperDetails {
+  padding: 20px;
+} */
 
 .imageWrap {
   display: flex;
@@ -13,4 +17,123 @@
   height: 312px;
   object-fit: cover;
   margin: 20px 0;
+}
+
+.bottomWrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  color: #555;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.activeTab {
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: #e44848;
+}
+
+.tab:hover {
+  color: #e44848;
+}
+
+.tab.active {
+  color: #e44848;
+}
+
+.features {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.featuresWrap {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 100px;
+}
+
+.detailsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.detailsItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reviews {
+  padding: 20px;
+  width: 100%;
+}
+
+.bookingFormWrap {
+  width: 100%;
+}
+
+.bookingForm {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.bookingForm h3 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.bookingForm .formField {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.bookingForm label {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.bookingForm input,
+.bookingForm textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.bookingForm button {
+  margin: 0 auto;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  background-color: #e44848;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bookingForm button:hover {
+  background-color: #d84343;
+}
+
+.error {
+  color: #e44848;
 }
