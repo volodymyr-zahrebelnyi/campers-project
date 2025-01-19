@@ -25,7 +25,7 @@ export const fetchCamperById = createAsyncThunk(
       );
       return response.data;
     } catch (error) {
-      console.error("Ошибка при загрузке данных кемпера:", error);
+      console.error("Error fetching campers data:", error);
       return rejectWithValue(error.response?.data || "Something went wrong");
     }
   }

@@ -1,0 +1,53 @@
+.filterPanel {
+  flex: 0 0 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.filterInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* .dropdown {
+  position: absolute;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+} */
+
+.filterCheckbox,
+.filterRadio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filterCheckbox input,
+.filterRadio input {
+  margin-right: 10px;
+}
+
+.searchButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+
+.searchButton:hover {
+  background-color: #d84343;
+}

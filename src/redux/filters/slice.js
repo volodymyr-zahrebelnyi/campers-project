@@ -25,21 +25,9 @@ const filterSlice = createSlice({
     setEquipments(state, action) {
       state.equipments = action.payload;
     },
-    clearFilters(state) {
-      state.location = "";
-      state.form = "";
-      state.equipments = {
-        AC: false,
-        transmission: "",
-        kitchen: false,
-        TV: false,
-        bathroom: false,
-      };
-    },
   },
 });
 
-export const { setLocation, setForm, setEquipments, clearFilters } =
-  filterSlice.actions;
+export const { setLocation, setForm, setEquipments } = filterSlice.actions;
 
 export default filterSlice.reducer;

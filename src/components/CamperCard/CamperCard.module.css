@@ -1,8 +1,13 @@
-.card {
+.camperCard {
+  display: flex;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrap {
+  /* display: flex; */
 }
 
 .image {
@@ -11,20 +16,36 @@
   object-fit: cover;
 }
 
-.content {
+.camperDetails {
+  /* display: flex; */
   padding: 10px;
 }
 
 .actions {
   display: flex;
+
   justify-content: space-between;
   margin-top: 10px;
 }
 
 .details {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4d4d;
+  color: #fff;
+  border-radius: 28px;
+  padding: 12px 32px;
+  width: 166px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+
+.details:hover {
+  background-color: #d84343;
 }
 
 .favorite {

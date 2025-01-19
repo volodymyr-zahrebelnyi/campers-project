@@ -7,7 +7,7 @@ const initialState = {
   favorites: [],
   filters: {
     location: "",
-    type: "",
+    form: "",
     features: [],
   },
   status: "idle",
@@ -34,7 +34,7 @@ const campersSlice = createSlice({
       }
     },
     resetFilters(state) {
-      state.filters = { location: "", type: "", features: [] };
+      state.filters = { location: "", form: "", features: [] };
       state.filteredCampers = state.campers;
     },
   },
@@ -46,7 +46,7 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.campers = action.payload;
+        state.campers = action.payload || [];
         state.filteredCampers = action.payload;
       })
       .addCase(fetchCampers.rejected, (state, action) => {
@@ -59,7 +59,7 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCamperById.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.camper = action.payload;
+        state.camper = action.payload || null;
       })
       .addCase(fetchCamperById.rejected, (state, action) => {
         state.status = "failed";
